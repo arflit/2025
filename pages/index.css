@@ -1,0 +1,39 @@
+/* нормалайз и шрифты */
+@import url(../vendor/normalize.css);
+@import url(../vendor/fonts/fonts.css);
+/* вся страниа */
+@import url(../blocks/page/page.css);
+
+/* шапка сайта */
+@import url(../blocks/header/header.css);
+  @import url(../blocks/header/__logo/header__logo.css);
+  @import url(../blocks/header/__title/header__title.css);
+
+/* основные секции */
+@import url(../blocks/content/content.css);
+
+@import url(../blocks/checkform/checkform.css);
+  @import url(../blocks/checkform/__title/checkform__title.css);
+
+@import url(../blocks/form/form.css);
+  @import url(../blocks/form/__input/form__input.css);
+  @import url(../blocks/form/__error-container/form__error-container.css);
+  @import url(../blocks/form/__error/form__error.css);
+    @import url(../blocks/form/__error/_visible/form__error_visible.css);
+  @import url(../blocks/form/__submit-button/form__submit-button.css);
+
+@import url(../blocks/checkresult/checkresult.css);
+  @import url(../blocks/checkresult/__title/checkresult__title.css);
+  @import url(../blocks/checkresult/__row/checkresult__row.css);
+    @import url(../blocks/checkresult/__row/_good/checkresult__row_good.css);
+    @import url(../blocks/checkresult/__row/_bad/checkresult__row_bad.css);
+  @import url(../blocks/checkresult/__quote/checkresult__quote.css);
+  @import url(../blocks/checkresult/__source/checkresult__source.css);
+  @import url(../blocks/checkresult/__buttons/checkresult__buttons.css);
+
+/* подвал */
+@import url(../blocks/footer/footer.css);
+@import url(../blocks/footer/__copyright/footer__copyright.css);
+
+/* микс-блоки */
+@import url(../blocks/hidden/hidden.css);

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Учебный проект в Яндекс.Практикуме - Гражданин Поэт 2025">
+  <meta name="author" content="Эдуард Тицкий, Евгения Травкина, Константин Бондарь, Аркадий Флитман">
+  <link rel="stylesheet" href="./pages/index.css">
+  <link rel="icon" href="./images/favicon.png">
+  <title>Проверка обращений граждан</title>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <img src="./images/favicon.png" alt="Логотип" class="header__logo">
+      <h1 class="header__title">Проверка обращений граждан</h1>
+    </header>
+    <main class="content">
+      <section class="chcekform  ">
+        <h2 class="checkform__title">Внесите в форму текст обращения</h2>
+        <form class="form" name="petitionCheck" novalidate>
+          <div class="form__error-container"><span class="petition-error form__error"></span></div>
+          <textarea class="form__input" id="petition" name="petition" placeholder="Текст обращения" required minlength="10"></textarea>
+          <button type="submit" class="form__submit-button">Проверить обращение на соответствие нормам</button>
+        </form>
+      </section>
+      <section class="checkresult hidden">
+        <h2 class="checkresult__title">Результаты проверки текста:</h2>
+        <div class="checkresult__row checkresult__row_good">
+          <p class="checkresult__quote">Мороз! Крестьянин, торжествуя</p>
+          <p class="checkresult__source">А. С. Пушкин</p>
+        </div>
+        <div class="checkresult__row checkresult__row_bad">
+          <p class="checkresult__quote">На "Волге" обновляет путь</p>
+          <p class="checkresult__source">Классики такого не писали</p>
+        </div>
+        <div class="checkresult__buttons">
+          <button type="button" class="checkresult__button" id="resetButton">Проверить ещё одно обращение</button>
+          <a href="https://мвд.рф/request_main" target="_blank"><button type="button" class="checkresult__button" >Сообщить о факте экстремизма</button></a>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">&#169; 2025</p>
+    </footer>
+  </div>
+  <template class="temprow">
+    <div class="checkresult__row">
+      <p class="checkresult__quote"></p>
+      <p class="checkresult__source"></p>
+    </div>
+  </template>
+  <script type="module" src="./scripts/index.js"></script> 
+</body>
+</html>
