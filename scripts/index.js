@@ -33,7 +33,9 @@ function getRandom(poets) {
 function showResult(rowList) {
   while (rowContainer.firstChild) {rowContainer.removeChild(rowContainer.firstChild);}
   rowList.forEach(function(row) {
-    addRow(row, getRandom(poets));
+    if (row) {
+      addRow(row, getRandom(poets));
+    }
   });
   formSection.classList.add('hidden');
   resultSection.classList.remove('hidden');
