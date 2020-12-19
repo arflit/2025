@@ -1,0 +1,7 @@
+.analytics__container {
+  border: 1px solid #DADADA;
+  border-radius: 8px;
+  padding: 16px 40px 33px 24px;
+  display: flex;
+  flex-direction: column;
+}

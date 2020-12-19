@@ -11,20 +11,90 @@
 </head>
 <body>
   <div class="page">
-    <header class="header">
+<!--     <header class="header">
       <img src="./images/favicon.png" alt="Логотип" class="header__logo">
       <h1 class="header__title">Проверка обращений граждан</h1>
     </header>
-    <main class="content">
-      <section class="chcekform  ">
-        <h2 class="checkform__title">Внесите в форму текст обращения</h2>
-        <form class="form" name="petitionCheck" novalidate>
+ -->    <main class="content">
+      <div class="title-container">
+        <h2 class="title">Анализ обращения</h2>
+        <div class="title_disabled-container">
+          <h2 class="title title_disabled">Расшифровка текста</h2>
+          <p class="title_disabled-comment">В разработке</p>
+        </div>
+      </div>
+      <div class="checkform">
+
+        <form class="form" name="petitionCheck" novalidate >
           <div class="form__error-container"><span class="petition-error form__error"></span></div>
-          <textarea class="form__input" id="petition" name="petition" placeholder="Текст обращения" required minlength="10"></textarea>
-          <button type="submit" class="form__submit-button">Проверить обращение на соответствие нормам</button>
+          <textarea class="form__input" id="petition" name="petition" placeholder="Введите текст обращения" required minlength="10"></textarea>
+          <button type="submit" class="form__submit-button">Проверить</button>
         </form>
-      </section>
-      <section class="checkresult hidden">
+        <div class="about ">
+          <p class="about__text">
+            Здесь будут отображаться результаты анализа текста.
+          </p>
+          <p class="about__text">
+            Если у вас пока нет текста обращения, вы можете воспользоваться готовым примером, чтобы проверить как работает наш сервис.
+          </p>
+          <button type="button" class="button about__testbutton">Вставить пример</button>
+        </div>
+        <div class="checkresult hidden">
+          <div class="checkresult__header">
+            <a href="#" class="checkresult__backbutton">&lt; назад</a>
+            <p class="checkresult__instruction">Нажмите на строку, чтобы увидеть подробную информацию</p>
+          </div>
+          <div class="checkresult__rowcontainer">
+            <div class="checkresult__row">
+              <p class="checkresult__number">1</p>
+              <p class="checkresult__line checkresult__line_good">Пусть в нашем прошлом будут рыться люди странные,</p>
+            </div>
+            <div class="checkresult__row">
+              <p class="checkresult__number">2</p>
+              <p class="checkresult__line checkresult__line_good">Кто-то странный бегал здесь.</p>
+            </div>
+            <div class="checkresult__row">
+              <p class="checkresult__number">3</p>
+              <p class="checkresult__line checkresult__line_good">Но два сердца стучат, как одно,              </p>
+            </div>
+            <div class="checkresult__row ">
+              <p class="checkresult__number">4</p>
+              <p class="checkresult__line checkresult__line_bad" >О, нет! — «Кому ж ты жертвуешь душой?»
+              </p>       
+            </div>
+            <div class="checkresult__row">
+              <p class="checkresult__number">5</p>
+              <p class="checkresult__line checkresult__line_good">И кто виной? Супруг, отец, конечно…»
+              </p>
+            </div>            
+            <div class="checkresult__row">
+              <p class="checkresult__number">5</p>
+              <p class="checkresult__line checkresult__line_good">Но перестал дарить цветы он просто так, не к случаю,
+                Любую женщину в кафе теперь считает лучшею.
+              </p>
+            </div>
+
+          </div>
+        </div>
+        <div class="analytics hidden">
+          <div class="analytics__container">
+            <h2 class="analytics__title">Анализ обращения</h2>
+            <p class="analytics__text">Текст обращения на <span class="analytics__percent">85%</span> совпадает с цитатами классиков.
+            </p>
+            <p class="analytics__text">Обратите внимание на <span class="analytics__line-number">четвертую</span> строку, она не соответствует оригиналу.
+            </p>
+          </div>
+          <div class="analytics__buttons">
+            <button type="button" class="button analytics__accept-button">Одобрить</button>
+            <button type="button" class="button analytics__report-button">Сообщить об экстремизме</button>
+          </div>
+        </div>
+
+      </div>
+
+
+
+<!--       <section class="checkresult hidden">
         <h2 class="checkresult__title">Результаты проверки текста:</h2>
         <div class="checkresult__container">
           <div class="checkresult__row checkresult__row_good">
@@ -41,17 +111,19 @@
           <a href="https://мвд.рф/request_main" target="_blank"><button type="button" class="checkresult__button" >Сообщить о факте экстремизма</button></a>
         </div>
       </section>
-    </main>
-    <footer class="footer">
+ -->    </main>
+<!--     <footer class="footer">
       <p class="footer__copyright">&#169; 2025</p>
     </footer>
-  </div>
+ -->  </div>
   <template class="temprow">
     <div class="checkresult__row">
-      <p class="checkresult__quote"></p>
-      <p class="checkresult__source"></p>
+      <p class="checkresult__number"></p>
+      <p class="checkresult__line"></p>
     </div>
   </template>
-  <script type="module" src="./scripts/index.js"></script> 
+<!--   <script type="module" src="./scripts/index.js"></script> 
+ -->
+<script src="./scripts/temp.js"></script>
 </body>
 </html>

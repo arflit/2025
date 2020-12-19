@@ -1,0 +1,11 @@
+.checkresult__number {
+  margin: 0;
+  padding: 7px 4px 6px 10px;
+  border: 1px solid #DADADA;
+  border-radius: 50%;
+  font-size: 12px;
+  color: #9D9D9D;
+  width: 28px;
+  height: 28px;
+  box-sizing: border-box;
+}

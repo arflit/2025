@@ -1,6 +1,5 @@
 .checkresult {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  min-height: 600px;
+  max-width: 60%;
 }
