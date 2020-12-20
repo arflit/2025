@@ -137,8 +137,8 @@ clearButton.addEventListener('click', () => {
 })
 
 form.addEventListener('submit', function(evt) {
-  popup.classList.add('popup-image_opened');
   evt.preventDefault();
+  popup.classList.add('popup-image_opened');
   const petitionText = petitionField.value;
   const rowList = petitionText.split('\n'); 
   showResult(rowList);
