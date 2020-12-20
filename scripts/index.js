@@ -80,17 +80,25 @@ function showResult(rowList) {
     if (rowItem) {
       return apiObject.verifyCitate(rowItem);
     }
-  });  
+  }); 
+
+  analytics.clearContent();
 
   Promise.all(rowListPromises)
     .then((citatesOutputs) => {
       let goodCount = 0;
+      let badNotFound = true;
       citatesOutputs.forEach(function(row, i) {
           const isGood = row['score'] >= citateGoodThreshold;
+          const number = i + 1;          
           if (isGood) {
             goodCount += 1;
+          } else {
+            if (badNotFound) {
+              badNotFound = false;
+              analytics.setWarning(number);
+            }
           }
-          const number = i + 1;
           addRow(row['query'], number, isGood);
       });
 
