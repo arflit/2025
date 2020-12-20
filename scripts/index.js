@@ -1,3 +1,9 @@
+import Api from './Api.js';
+
+// todo: move to util/constants.js module
+const baseApiUrl = 'backend-2025.herokuapp.com/api/';
+const apiObject = new Api(baseApiUrl);
+
 const form = document.forms.petitionCheck;
 const counter = document.querySelector('.form__counter');
 const petitionField = form.elements.petition;
@@ -11,7 +17,10 @@ const clearButton = document.querySelector('.form__clearbutton');
 const resultSection = document.querySelector('.checkresult');
 const backButton = document.querySelector('.checkresult__backbutton');
 const rowContainer = resultSection.querySelector('.checkresult__rowcontainer');
+
+//todo: import'ы лучше делать до всех объявлений
 import { CheckLine } from './CheckLine.js';
+
 /* import { FormValidator } from './FormValidator.js';
 const validationSettings = {
   formSelector: '.form',
@@ -65,6 +74,8 @@ function addRow(textLine, number, isgood) {
 }
 
 function showResult(rowList) {
+  // fyi: если хочешь почистить содержимое контейнера, то можно просто сделать 
+  // rowContainer.innerHTML = ''; 
   while (rowContainer.firstChild) {rowContainer.removeChild(rowContainer.firstChild);}
   rowList.forEach(function(row, i) {
     if (row) {
@@ -102,6 +113,21 @@ form.addEventListener('submit', function(evt) {
   const rowList = petitionText.split('\n'); 
   showResult(rowList);
 });
+
+// функциональность "изменить профиль"
+const submitFormEditProfileCallback = ({ title, description }) => {
+  popupEditProfile.setSaveState();
+  apiObject.updateUserInfo({ name: title, about: description })
+    .then((info) => {
+      userInfoObject.setInfo(info);
+      popupEditProfile.close();
+      return Promise.resolve();
+    })
+    .catch((err) => { popupErrorObject.show(err); })
+    .finally(() => {
+      popupEditProfile.finishSaveState();
+    });
+};
 
 function countInput(text) {
   const count = text.length;
