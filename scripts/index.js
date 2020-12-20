@@ -21,6 +21,7 @@ const clearButton = document.querySelector('.form__clearbutton');
 const resultSection = document.querySelector('.checkresult');
 const backButton = document.querySelector('.checkresult__backbutton');
 const rowContainer = resultSection.querySelector('.checkresult__rowcontainer');
+const popup = document.querySelector('.popup-image');
 
 //todo: import'ы лучше делать до всех объявлений
 import { CheckLine } from './CheckLine.js';
@@ -72,8 +73,6 @@ function addRow(textLine, number, isgood) {
 }
 
 function showResult(rowList) {
-  // fyi: если хочешь почистить содержимое контейнера, то можно просто сделать 
-  // rowContainer.innerHTML = ''; 
   while (rowContainer.firstChild) {rowContainer.removeChild(rowContainer.firstChild);}
 
   const rowListPromises = rowList.map(function (rowItem) {
@@ -115,6 +114,9 @@ function showResult(rowList) {
       //todo: тут надо сделать показ всплывающего окна с ошибками api
       console.log(err);
     })
+
+    popup.classList.remove('popup-image_opened');
+
 }
 
 function showForm() {
@@ -135,6 +137,7 @@ clearButton.addEventListener('click', () => {
 })
 
 form.addEventListener('submit', function(evt) {
+  popup.classList.add('popup-image_opened');
   evt.preventDefault();
   const petitionText = petitionField.value;
   const rowList = petitionText.split('\n'); 
