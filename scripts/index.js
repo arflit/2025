@@ -1,10 +1,13 @@
 import Api from './Api.js';
+import Analytics from './Analytics.js';
 
 // todo: move to util/constants.js module
 const baseApiUrl = 'https://backend-2025.herokuapp.com/api/';
 const apiObject = new Api(baseApiUrl);
 
 const citateGoodThreshold = 50;
+
+const analytics = new Analytics();
 
 const form = document.forms.petitionCheck;
 const counter = document.querySelector('.form__counter');
@@ -13,7 +16,6 @@ const resetButton = document.querySelector('#resetButton');
 const formSection = document.querySelector('.form');
 const about = document.querySelector('.about');
 const checkresult = document.querySelector('.checkresult');
-const analytics = document.querySelector('.analytics');
 const testButton = document.querySelector('.about__testbutton');
 const clearButton = document.querySelector('.form__clearbutton');
 const resultSection = document.querySelector('.checkresult');
@@ -82,15 +84,24 @@ function showResult(rowList) {
 
   Promise.all(rowListPromises)
     .then((citatesOutputs) => {
+      let goodCount = 0;
       citatesOutputs.forEach(function(row, i) {
           const isGood = row['score'] >= citateGoodThreshold;
+          if (isGood) {
+            goodCount += 1;
+          }
           const number = i + 1;
           addRow(row['query'], number, isGood);
       });
+
+      if (citatesOutputs) {
+        analytics.setCorrectPercent(100*goodCount/citatesOutputs.length);
+      }
+
       formSection.classList.add('hidden');
       about.classList.add('hidden');
       checkresult.classList.remove('hidden');
-      analytics.classList.remove('hidden');
+      analytics.show();
     })
     .catch((err) => { 
       //todo: тут надо сделать показ всплывающего окна с ошибками api
@@ -102,7 +113,7 @@ function showForm() {
   formSection.classList.remove('hidden');
   about.classList.remove('hidden');
   checkresult.classList.add('hidden');
-  analytics.classList.add('hidden');
+  analytics.hide();
 }
 
 testButton.addEventListener('click', function() {
@@ -121,21 +132,6 @@ form.addEventListener('submit', function(evt) {
   const rowList = petitionText.split('\n'); 
   showResult(rowList);
 });
-
-// функциональность "изменить профиль"
-const submitFormEditProfileCallback = ({ title, description }) => {
-  popupEditProfile.setSaveState();
-  apiObject.updateUserInfo({ name: title, about: description })
-    .then((info) => {
-      userInfoObject.setInfo(info);
-      popupEditProfile.close();
-      return Promise.resolve();
-    })
-    .catch((err) => { popupErrorObject.show(err); })
-    .finally(() => {
-      popupEditProfile.finishSaveState();
-    });
-};
 
 function countInput(text) {
   const count = text.length;
