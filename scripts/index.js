@@ -6,6 +6,7 @@ const about = document.querySelector('.about');
 const checkresult = document.querySelector('.checkresult');
 const analytics = document.querySelector('.analytics');
 const testButton = document.querySelector('.about__testbutton');
+const clearButton = document.querySelector('.form__clearbutton');
 const resultSection = document.querySelector('.checkresult');
 const backButton = document.querySelector('.checkresult__backbutton');
 const rowContainer = resultSection.querySelector('.checkresult__rowcontainer');
@@ -88,6 +89,7 @@ testButton.addEventListener('click', function() {
   petitionField.value = testText;
 })
 
+clearButton.addEventListener('click', () => {form.reset();})
 form.addEventListener('submit', function(evt) {
   evt.preventDefault();
   const petitionText = petitionField.value;

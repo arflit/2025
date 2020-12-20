@@ -1,0 +1,9 @@
+.form__clearbutton {
+  width: 24px;
+  height: 24px;
+  background: transparent url(../../../images/xcircle.svg) center no-repeat;
+  border: 0;
+  position: absolute;
+  top: 30px;
+  left: 15px;
+}

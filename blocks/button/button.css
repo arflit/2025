@@ -1,6 +1,7 @@
 .button {
   border-radius: 8px;
   transition: opacity 1s ease;
+  border: 0;
 }
 
 .button:hover {
