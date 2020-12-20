@@ -108,6 +108,7 @@ function showResult(rowList) {
       formSection.classList.add('hidden');
       about.classList.add('hidden');
       checkresult.classList.remove('hidden');
+      popup.classList.remove('popup-image_opened');
       analytics.show();
     })
     .catch((err) => { 
@@ -115,7 +116,6 @@ function showResult(rowList) {
       console.log(err);
     })
 
-    popup.classList.remove('popup-image_opened');
 
 }
 
