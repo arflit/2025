@@ -1,5 +1,5 @@
 .checkresult {
   display: flex;
   flex-direction: column;
-  max-width: 60%;
+  width: 65%;
 }

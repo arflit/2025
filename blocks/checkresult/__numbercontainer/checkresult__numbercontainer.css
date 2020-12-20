@@ -1,0 +1,9 @@
+.checkresult__numbercontainer {
+  border: 1px solid #DADADA;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

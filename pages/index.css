@@ -39,6 +39,7 @@
 @import url(../blocks/checkresult/__instruction/checkresult__instruction.css);
 @import url(../blocks/checkresult/__rowcontainer/checkresult__rowcontainer.css);
 @import url(../blocks/checkresult/__row/checkresult__row.css);
+@import url(../blocks/checkresult/__numbercontainer/checkresult__numbercontainer.css);
 @import url(../blocks/checkresult/__number/checkresult__number.css);
 @import url(../blocks/checkresult/__line/checkresult__line.css);
 @import url(../blocks/checkresult/__line/_good/checkresult__line_good.css);
