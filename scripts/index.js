@@ -64,9 +64,10 @@ function addRow(textLine, number, isgood) {
 
 function showResult(rowList) {
   while (rowContainer.firstChild) {rowContainer.removeChild(rowContainer.firstChild);}
-  rowList.forEach(function(row, number) {
+  rowList.forEach(function(row, i) {
     if (row) {
       const isGood = checkRow();
+      const number = i + 1;
       addRow(row, number, isGood);
     }
   });
