@@ -1,0 +1,12 @@
+.form__counter {
+  margin: 0;
+  color: #dadada;
+  font-size: 16px;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+
+.form__counter_err {
+  color: #EA4F4F;
+}

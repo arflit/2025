@@ -1,4 +1,5 @@
 const form = document.forms.petitionCheck;
+const counter = document.querySelector('.form__counter');
 const petitionField = form.elements.petition;
 const resetButton = document.querySelector('#resetButton');
 const formSection = document.querySelector('.form');
@@ -87,15 +88,35 @@ function showForm() {
 
 testButton.addEventListener('click', function() {
   petitionField.value = testText;
+  countInput(testText);
 })
 
-clearButton.addEventListener('click', () => {form.reset();})
+clearButton.addEventListener('click', () => {
+  form.reset();
+  countInput('');
+})
+
 form.addEventListener('submit', function(evt) {
   evt.preventDefault();
   const petitionText = petitionField.value;
   const rowList = petitionText.split('\n'); 
   showResult(rowList);
 });
+
+function countInput(text) {
+  const count = text.length;
+  counter.textContent = `${count} / 1000`;
+  if (count >= 1000) {
+    counter.classList.add('form__counter_err');
+  } else {
+    counter.classList.remove('form__counter_err');
+  }
+}
+
+petitionField.addEventListener('input', () => {
+  const text = petitionField.value;
+  countInput(text);
+})
 
 backButton.addEventListener('click', showForm);
 resetButton.addEventListener('click', function() {

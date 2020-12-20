@@ -26,41 +26,42 @@
   @import url(../blocks/form/__input/form__input.css);
   @import url(../blocks/form/__inputcontainer/form__inputcontainer.css);
   @import url(../blocks/form/__clearbutton/form__clearbutton.css);
+  @import url(../blocks/form/__counter/form__counter.css);
   @import url(../blocks/form/__error-container/form__error-container.css);
   @import url(../blocks/form/__error/form__error.css);
     @import url(../blocks/form/__error/_visible/form__error_visible.css);
   @import url(../blocks/form/__submit-button/form__submit-button.css);
 
 @import url(../blocks/about/about.css);
-@import url(../blocks/about/__text/about__text.css);
-@import url(../blocks/about/__testbutton/about__testbutton.css);
+  @import url(../blocks/about/__text/about__text.css);
+  @import url(../blocks/about/__testbutton/about__testbutton.css);
 
 @import url(../blocks/checkresult/checkresult.css);
-@import url(../blocks/checkresult/__header/checkresult__header.css);
-@import url(../blocks/checkresult/__backbutton/checkresult__backbutton.css);
-@import url(../blocks/checkresult/__instruction/checkresult__instruction.css);
-@import url(../blocks/checkresult/__rowcontainer/checkresult__rowcontainer.css);
-@import url(../blocks/checkresult/__row/checkresult__row.css);
-@import url(../blocks/checkresult/__numbercontainer/checkresult__numbercontainer.css);
-@import url(../blocks/checkresult/__number/checkresult__number.css);
-@import url(../blocks/checkresult/__line/checkresult__line.css);
-@import url(../blocks/checkresult/__line/_good/checkresult__line_good.css);
-@import url(../blocks/checkresult/__line/_bad/checkresult__line_bad.css);
+  @import url(../blocks/checkresult/__header/checkresult__header.css);
+  @import url(../blocks/checkresult/__backbutton/checkresult__backbutton.css);
+  @import url(../blocks/checkresult/__instruction/checkresult__instruction.css);
+  @import url(../blocks/checkresult/__rowcontainer/checkresult__rowcontainer.css);
+  @import url(../blocks/checkresult/__row/checkresult__row.css);
+  @import url(../blocks/checkresult/__numbercontainer/checkresult__numbercontainer.css);
+  @import url(../blocks/checkresult/__number/checkresult__number.css);
+  @import url(../blocks/checkresult/__line/checkresult__line.css);
+    @import url(../blocks/checkresult/__line/_good/checkresult__line_good.css);
+    @import url(../blocks/checkresult/__line/_bad/checkresult__line_bad.css);
 
 @import url(../blocks/analytics/analytics.css);
-@import url(../blocks/analytics/__container/analytics__container.css);
-@import url(../blocks/analytics/__title/analytics__title.css);
-@import url(../blocks/analytics/__text/analytics__text.css);
-@import url(../blocks/analytics/__percent/analytics__percent.css);
-@import url(../blocks/analytics/__line-number/analytics__line-number.css);
-@import url(../blocks/analytics/__buttons/analytics__buttons.css);
-@import url(../blocks/analytics/__accept-button/analytics__accept-button.css);
-@import url(../blocks/analytics/__report-button/analytics__report-button.css);
+  @import url(../blocks/analytics/__container/analytics__container.css);
+  @import url(../blocks/analytics/__title/analytics__title.css);
+  @import url(../blocks/analytics/__text/analytics__text.css);
+  @import url(../blocks/analytics/__percent/analytics__percent.css);
+  @import url(../blocks/analytics/__line-number/analytics__line-number.css);
+  @import url(../blocks/analytics/__buttons/analytics__buttons.css);
+  @import url(../blocks/analytics/__accept-button/analytics__accept-button.css);
+  @import url(../blocks/analytics/__report-button/analytics__report-button.css);
 
 
 /* подвал */
 @import url(../blocks/footer/footer.css);
-@import url(../blocks/footer/__copyright/footer__copyright.css);
+  @import url(../blocks/footer/__copyright/footer__copyright.css);
 
 /* микс-блоки */
 @import url(../blocks/hidden/hidden.css);
