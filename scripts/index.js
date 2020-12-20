@@ -1,3 +1,14 @@
+import Api from './Api.js';
+import Analytics from './Analytics.js';
+
+// todo: move to util/constants.js module
+const baseApiUrl = 'https://backend-2025.herokuapp.com/api/';
+const apiObject = new Api(baseApiUrl);
+
+const citateGoodThreshold = 50;
+
+const analytics = new Analytics();
+
 const form = document.forms.petitionCheck;
 const counter = document.querySelector('.form__counter');
 const petitionField = form.elements.petition;
@@ -5,13 +16,15 @@ const resetButton = document.querySelector('#resetButton');
 const formSection = document.querySelector('.form');
 const about = document.querySelector('.about');
 const checkresult = document.querySelector('.checkresult');
-const analytics = document.querySelector('.analytics');
 const testButton = document.querySelector('.about__testbutton');
 const clearButton = document.querySelector('.form__clearbutton');
 const resultSection = document.querySelector('.checkresult');
 const backButton = document.querySelector('.checkresult__backbutton');
 const rowContainer = resultSection.querySelector('.checkresult__rowcontainer');
+
+//todo: import'ы лучше делать до всех объявлений
 import { CheckLine } from './CheckLine.js';
+
 /* import { FormValidator } from './FormValidator.js';
 const validationSettings = {
   formSelector: '.form',
@@ -53,37 +66,62 @@ const testText = `Безмолвное море, лазурное море,
 Ты в бездне покойной скрываешь смятенье,
 Ты, небом любуясь, дрожишь за него.`;
 
-function checkRow() {
-  const number = Math.random();
-  const isGood = (number < 0.7);
-  return isGood;
-}
-
 function addRow(textLine, number, isgood) {
   const newRow = new CheckLine(textLine, number, isgood);
   rowContainer.append(newRow.generateRow());
 }
 
 function showResult(rowList) {
+  // fyi: если хочешь почистить содержимое контейнера, то можно просто сделать 
+  // rowContainer.innerHTML = ''; 
   while (rowContainer.firstChild) {rowContainer.removeChild(rowContainer.firstChild);}
-  rowList.forEach(function(row, i) {
-    if (row) {
-      const isGood = checkRow();
-      const number = i + 1;
-      addRow(row, number, isGood);
+
+  const rowListPromises = rowList.map(function (rowItem) {
+    if (rowItem) {
+      return apiObject.verifyCitate(rowItem);
     }
-  });
-  formSection.classList.add('hidden');
-  about.classList.add('hidden');
-  checkresult.classList.remove('hidden');
-  analytics.classList.remove('hidden');
+  }); 
+
+  analytics.clearContent();
+
+  Promise.all(rowListPromises)
+    .then((citatesOutputs) => {
+      let goodCount = 0;
+      let badNotFound = true;
+      citatesOutputs.forEach(function(row, i) {
+          const isGood = row['score'] >= citateGoodThreshold;
+          const number = i + 1;          
+          if (isGood) {
+            goodCount += 1;
+          } else {
+            if (badNotFound) {
+              badNotFound = false;
+              analytics.setWarning(number);
+            }
+          }
+          addRow(row['query'], number, isGood);
+      });
+
+      if (citatesOutputs) {
+        analytics.setCorrectPercent(100*goodCount/citatesOutputs.length);
+      }
+
+      formSection.classList.add('hidden');
+      about.classList.add('hidden');
+      checkresult.classList.remove('hidden');
+      analytics.show();
+    })
+    .catch((err) => { 
+      //todo: тут надо сделать показ всплывающего окна с ошибками api
+      console.log(err);
+    })
 }
 
 function showForm() {
   formSection.classList.remove('hidden');
   about.classList.remove('hidden');
   checkresult.classList.add('hidden');
-  analytics.classList.add('hidden');
+  analytics.hide();
 }
 
 testButton.addEventListener('click', function() {
