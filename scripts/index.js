@@ -1,8 +1,10 @@
 import Api from './Api.js';
 
 // todo: move to util/constants.js module
-const baseApiUrl = 'backend-2025.herokuapp.com/api/';
+const baseApiUrl = 'https://backend-2025.herokuapp.com/api/';
 const apiObject = new Api(baseApiUrl);
+
+const citateGoodThreshold = 50;
 
 const form = document.forms.petitionCheck;
 const counter = document.querySelector('.form__counter');
@@ -62,12 +64,6 @@ const testText = `Безмолвное море, лазурное море,
 Ты в бездне покойной скрываешь смятенье,
 Ты, небом любуясь, дрожишь за него.`;
 
-function checkRow() {
-  const number = Math.random();
-  const isGood = (number < 0.7);
-  return isGood;
-}
-
 function addRow(textLine, number, isgood) {
   const newRow = new CheckLine(textLine, number, isgood);
   rowContainer.append(newRow.generateRow());
@@ -77,17 +73,29 @@ function showResult(rowList) {
   // fyi: если хочешь почистить содержимое контейнера, то можно просто сделать 
   // rowContainer.innerHTML = ''; 
   while (rowContainer.firstChild) {rowContainer.removeChild(rowContainer.firstChild);}
-  rowList.forEach(function(row, i) {
-    if (row) {
-      const isGood = checkRow();
-      const number = i + 1;
-      addRow(row, number, isGood);
+
+  const rowListPromises = rowList.map(function (rowItem) {
+    if (rowItem) {
+      return apiObject.verifyCitate(rowItem);
     }
-  });
-  formSection.classList.add('hidden');
-  about.classList.add('hidden');
-  checkresult.classList.remove('hidden');
-  analytics.classList.remove('hidden');
+  });  
+
+  Promise.all(rowListPromises)
+    .then((citatesOutputs) => {
+      citatesOutputs.forEach(function(row, i) {
+          const isGood = row['score'] >= citateGoodThreshold;
+          const number = i + 1;
+          addRow(row['query'], number, isGood);
+      });
+      formSection.classList.add('hidden');
+      about.classList.add('hidden');
+      checkresult.classList.remove('hidden');
+      analytics.classList.remove('hidden');
+    })
+    .catch((err) => { 
+      //todo: тут надо сделать показ всплывающего окна с ошибками api
+      console.log(err);
+    })
 }
 
 function showForm() {

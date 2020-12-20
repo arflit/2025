@@ -10,11 +10,6 @@ export default class Api {
             method: method,
         }
 
-        if (data != null) {
-            requestParams['body'] = JSON.stringify(data);
-            requestParams.headers['Content-Type'] = 'application/json';
-        }
-
         return fetch(this._baseUrl + tailUrl, requestParams)
             .then((res) => {
                 if (res.ok) {
