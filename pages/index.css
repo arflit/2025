@@ -1,6 +1,6 @@
 /* нормалайз и шрифты */
 @import url(../vendor/normalize.css);
-@import url(../vendor/fonts/inter.css);
+@import url(../vendor/fonts/fonts.css);
 /* вся страниа */
 @import url(../blocks/page/page.css);
 @import url(../blocks/button/button.css);
