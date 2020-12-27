@@ -23,3 +23,13 @@
 Дизайн - Эдуард Тицкий, Евгения Травкина
 Бэкенд - Константин Бондарь
 Фронтенд - Аркадий Флитман, Константин Бондарь
+
+### Дополнительные материалы
+
+[Бэкенд за авторском Константина Бондаря](https://github.com/TizJourney/2025_backend/)
+[Админка бэкенда](https://backend-2025.herokuapp.com/admin/) - логин и пароль - *admin*
+Примеры запросов: [1](https://backend-2025.herokuapp.com/api/verify/?query=явилось%20чудное%20мнгновенье) [2](https://backend-2025.herokuapp.com/api/verify/?query=пушкин) [3](https://backend-2025.herokuapp.com/api/verify/?query=мороз%20и%20солнце) [4](https://backend-2025.herokuapp.com/api/verify/?query=Мороз%20и%20солнце%20день%20чудесный)
+[Дашборд на Фигме, детальная проработка - Эдуард Тицкий](https://www.figma.com/file/F6jMCIUoXSqBZ6LEsqDuAw/13-группа?node-id=0%3A1)
+Нереализованное: 
+[Макет тикет-системы, подсистемой которой является страница выше, работа Евгении Травкиной](https://www.figma.com/proto/WuoKTKZU92elqwgreNpwGM/%D0%A5%D0%B0%D0%BA%D0%B0%D1%82%D0%BE%D0%BD-2025?node-id=6%3A3&scaling=scale-down-width)
+[Макет "игры"-обучалки по работе с системой](https://www.figma.com/file/r5cJzT0KUlBxkESKB1d1uy/Game?node-id=0%3A1)
