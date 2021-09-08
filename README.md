@@ -5,7 +5,7 @@
 
 Вот [макет](https://www.figma.com/file/kG1A96YCcJuqrh2nMlNnHq/%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81.%D0%A5%D0%B0%D0%BA%D0%B0%D1%82%D0%BE%D0%BD-2025-Copy?node-id=0%3A1).
 
-Опубликован проект [вот здесь](https://konjvpaljto.github.io/2025/). 
+Опубликован проект [вот здесь](https://arflit.github.io/2025/). 
 
 ### Идея 
 Задача была: “Сделать прототип приложения для гражданских инициатив.”
